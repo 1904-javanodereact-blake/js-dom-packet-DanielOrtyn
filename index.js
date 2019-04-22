@@ -257,15 +257,11 @@ function alertColorRadioButtonSelect(event) {
 // When user hovers over an employees name:
 // 	Hide the name if shown.
 // 	Show the name if hidden.
-$(function () {
-    $('[data-toggle="tooltip"]').tooltip()
-})
 let employeeNameElementList = document.querySelectorAll('.empName');
-for (let employeNameElement of employeeNameElementList) {
-    let employeeNameText = employeNameElement.innerText;
-    employeNameElement.setAttribute('data-toggle', `tooltip`);
-    employeNameElement.setAttribute('data-placement', `top`);
-    employeNameElement.setAttribute('title', employeeNameText);
+for (let employeeNameElement of employeeNameElementList) {
+    employeeNameElement.parentElement.addEventListener('mouseover', () => {
+        employeeNameElement.hidden = !employeeNameElement.hidden;
+    });
 }
 
 
